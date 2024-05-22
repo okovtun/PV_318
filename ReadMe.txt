@@ -1,0 +1,9 @@
+https://github.com/okovtun/PV_318.git
+https://www.youtube.com/playlist?list=PLeqyOOqxeiIPt4Opfdrc50pI9PbPSjOaV
+
+TODO:
+0. Выучить теорию!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+1. В проекте 'IntroductionToOOP' написать метод ??? distance(???),
+   который возвращает расстояние до указанной точки;
+2. В проекте 'IntroductionToOOP' написать функцию ??? distance(???),
+   которая возвращает расстояние между двумя точками;
