@@ -101,7 +101,7 @@ double distance(const Point& A, const Point& B)
 //#define STRUCT_POINT
 //#define DISTANCE_CHECK
 //#define CONSTRUCTORS_CHECK
-#define ASSIGNMENT_CHECK
+//#define ASSIGNMENT_CHECK
 
 void main()
 {
@@ -185,6 +185,11 @@ void main()
 	C.print();
 #endif // ASSIGNMENT_CHECK
 
+	Point A(2, 3);
+	Point B(7, 8);
+	Point C = A + B;
+	C.print();
+
 }
 
 /*
@@ -233,5 +238,30 @@ void main()
 	-конструктор переноса;
 2. ~Destructor  - это метод, который уничтожает объект по завершении его времени жизни.
 3. Assignment operator;
+------------------------------------------------
+*/
+
+/*
+------------------------------------------------
+			Operators overloading rules:
+1. Перегрузить можно только существующие операторы, 
+   создавать новые операторы невозможно.
+   Например:
+	+  - перегружается;
+	++ - перегружается;
+	%  - перегружается;
+	%% - НЕ перегружается;
+2. Не все существующие операторы можно перегрузить,
+   НЕ перегружаются:
+	?: - Conditional Ternary operator;
+	:: - Scope operator (Оператор разрешения видимости);
+	.  - Оператор прямого доступа (Point operator);
+	.* - Pointer to member selection;
+	#  - Preprocessor convert to string;
+	## - Preprocessor concatenate;
+3. Перегруженные операторы сохраняют приоритет;
+4. Переопределить поведение операторов над встроенными типами данных НЕВОЗМОЖНО;
+------------------------------------------------
+	operator@
 ------------------------------------------------
 */
