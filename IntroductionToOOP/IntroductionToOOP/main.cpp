@@ -251,6 +251,9 @@ void main()
 
 	//cout << (2 == 3) << endl;
 	cout << (Point(2, 3) == Point(3, 3)) << endl;
+
+	for (double i = .25; i < 10; i++)
+		cout << i << "\t";
 }
 
 /*
