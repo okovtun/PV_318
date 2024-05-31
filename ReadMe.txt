@@ -3,13 +3,12 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIPt4Opfdrc50pI9PbPSjOaV
 https://meet.google.com/mho-khdw-fhj
 
 TODO:
-	String str;	//Создается пустая строка размером 80 Байт
-	String str1 = "Hello";
-	String str2 = "World";
-	String str3 = str1+str2;
-	cout << str3 << endl;
+В классе 'Fraction' перегрузить следующие операторы:
+1. Increment/Decrement;
+2. Составные присваивания: +=, -=, *=, /=;
+3. Операторы сравнения: ==, !=, >, <, >=, <=;
 
-TODO:
+DONE:
 0. Выучить теорию!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 1. https://learn.microsoft.com/en-us/cpp/cpp/operator-overloading?view=msvc-170
 2. https://learn.microsoft.com/en-us/cpp/cpp/general-rules-for-operator-overloading?view=msvc-170
