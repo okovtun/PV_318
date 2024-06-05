@@ -3,6 +3,9 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIPt4Opfdrc50pI9PbPSjOaV
 https://meet.google.com/mho-khdw-fhj
 
 TODO:
+Выучить теорию по преобразованиям типов.
+
+DONE:
 Проверочный код в секции STREAMS_CHECK должен заработать:
 	https://github.com/okovtun/PV_318/blob/94ebc6ebe761aa022dd79fc037f3bedfaee45d18/IntroductionToOOP/Fraction/main.cpp#L294
 

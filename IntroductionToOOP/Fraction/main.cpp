@@ -2,6 +2,9 @@
 #include<iostream>
 using namespace std;
 
+#define delimiter			"\n-----------------------------------\n"
+#define double_delimiter	"\n===================================\n"
+
 class Fraction;
 Fraction operator*(Fraction left, Fraction right);
 Fraction operator/(const Fraction& left, const Fraction& right);
@@ -272,7 +275,8 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 //#define CONSTRUCTORS_CHECK
 //#define ARITHMETICAL_OPERATORS_CHECK
 //#define COMPARISON_OPERATORS_CHECK
-#define STREAMS_CHECK
+//#define STREAMS_CHECK
+//#define TYPE_CONVERSIONS_BASICS
 
 void main()
 {
@@ -341,7 +345,42 @@ void main()
 	Fraction A(2, 3, 4);
 	cout << "Введите простую дробь: "; cin >> A;
 	
-	cout << A << endl;;
+	cout << A << endl;
 #endif // STREAMS_CHECK
 
+#ifdef TYPE_CONVERSIONS_BASICS
+	//(type)value;	C-like notation		(C-подобная форма записи)
+//type(value);	Functional notation	(Функицональная форма записи)
+//int a = 2.5;
+//C4244: Conversion from 'type_1' to 'type_2', possible loss of data;
+//		l-value = r-value;
+
+	int a = 2;		//No conversions
+	double b = 3;	//Conversion from less to more
+	int c = b;		//Conversion from more to less without data loss
+	int d = 2.5;	//Conversion from more to less with data loss
+	cout << sizeof(int) << endl;
+	cout << sizeof(double) << endl;
+#endif // TYPE_CONVERSIONS_BASICS
+
+	/*
+	----------------------------------
+	1. From other to Class:
+		- Single-argument constructor;
+		- CopyAssignment;
+	2. From Class to other;
+	----------------------------------
+	*/
+	Fraction A = 5;
+	cout << A << endl;
+
+	cout << double_delimiter << endl;
+
+	Fraction B;	//Default constructor
+	cout << delimiter << endl;
+	B = 8;		//CopyAssignment
+	cout << delimiter << endl;
+	cout << B << endl;
+
+	cout << double_delimiter << endl;
 }
