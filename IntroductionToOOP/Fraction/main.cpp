@@ -1,3 +1,4 @@
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 using namespace std;
 
@@ -209,8 +210,14 @@ bool operator>=(const Fraction& left, const Fraction& right)
 	return !(left < right);
 	return left > right || left == right;
 }
-
+//Stream - поток
+//std - Standard namespace
+//:: - Scope operator (Оператор разрешения видимости - позволяет "зайти" в пространство имен)
+//Сам по себе '::' выводит нас в GlobalScope (Глобальное пространство имен)
+//namespace (Пространство имен) как папка, а имя, расположенное в нем - как файл.
 std::ostream& operator<<(std::ostream& os, const Fraction& obj)
+//ostream - output stream (поток вывода)
+//cout - Console Out
 {
 	if (obj.get_integer())os << obj.get_integer();
 	if (obj.get_numerator())
@@ -221,6 +228,45 @@ std::ostream& operator<<(std::ostream& os, const Fraction& obj)
 	}
 	else if (obj.get_integer() == 0) os << 0;
 	return os;
+}
+std::istream& operator>>(std::istream& is, Fraction& obj)
+//istream - input stream (поток ввода)
+//cin - Console In
+{
+	/*
+	----------------------------
+	5
+	1/2
+	2 3/4
+	2(3/4)
+	2+3/4
+	----------------------------
+	*/
+	const int SIZE = 64;
+	char buffer[SIZE]{};
+	//is >> buffer;
+	is.getline(buffer, SIZE);
+	int number[3];
+	int n = 0;
+	const char delimiters[] = "(/) +";
+	for (char* pch = strtok(buffer, delimiters); pch; pch = strtok(NULL, delimiters))
+	//Функция strtok() разделяет строку на токены:
+	//https://legacy.cplusplus.com/reference/cstring/strtok/
+		//	!!! ФУНКЦИЯ strtok() ИЗМЕНЯЕТ ВХОДНУЮ СТРОКУ !!!
+		number[n++] = atoi(pch);
+	//pch - Pointer to Character (Указатель на символ)
+	//Функция atoi() - "ASCII string to int" принимает строку, и взвращает значение типа 'int' найденное в этой строке
+	//https://legacy.cplusplus.com/reference/cstdlib/atoi/
+	//for (int i = 0; i < n; i++)cout << number[i] << "\t"; cout << endl;
+
+	switch (n)
+	{
+	case 1:	obj = Fraction(number[0]); break;
+	case 2: obj = Fraction(number[0], number[1]); break;
+	case 3: obj = Fraction(number[0], number[1], number[2]); break;
+	}
+
+	return is;
 }
 
 //#define CONSTRUCTORS_CHECK
@@ -293,7 +339,8 @@ void main()
 
 #ifdef STREAMS_CHECK
 	Fraction A(2, 3, 4);
-	cout << "������� ������� �����: "; cin >> A;
+	cout << "Введите простую дробь: "; cin >> A;
+	
 	cout << A << endl;;
 #endif // STREAMS_CHECK
 
