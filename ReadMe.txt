@@ -9,6 +9,9 @@ TODO:
 2. Проверочный код в секции 'CONVERSIONS_TASK_2' должен заработать:
 	https://github.com/okovtun/PV_318/blob/8a1c5fac36642fe024a1fef36975907bea2a87fc/IntroductionToOOP/Fraction/main.cpp#L424
 
+3. Проверочный код в проекте 'String' должен заработать:
+	https://github.com/okovtun/PV_318/blob/ea3af04dbe373cfc98d99635976d16a553765323/IntroductionToOOP/String/main.cpp#L37
+
 DONE:
 Выучить теорию по преобразованиям типов.
 
