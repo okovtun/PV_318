@@ -1,0 +1,8 @@
+The rule of Three:
+1. ~Destructor()
+2. CopyConstructor()		DeepCopy - Побитовое копирование
+3. CopyAssignment()			DeepCopy
+
+ShallowCopy - Поверхностное копировани
+
+Debug Assertion Failed
