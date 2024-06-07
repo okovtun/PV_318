@@ -49,8 +49,10 @@ public:
 		denominator = 1;
 		cout << "DefaultConstructor:\t" << this << endl;
 	}
-	Fraction(int integer)
+	explicit Fraction(int integer)
 	{
+		//explicit - явный
+		//implicit - неявный
 		this->integer = integer;
 		this->numerator = 0;
 		this->denominator = 1;
@@ -110,6 +112,22 @@ public:
 		Fraction old = *this;
 		integer++;
 		return old;
+	}
+
+	//				Type-cast operators:
+	/*
+	--------------------------------------------
+	operator type()
+	{
+		.....;
+		.....;
+		return value;
+	}
+	--------------------------------------------
+	*/
+	explicit operator int()
+	{
+		return integer;
 	}
 
 	//				Methods:
@@ -277,6 +295,10 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 //#define COMPARISON_OPERATORS_CHECK
 //#define STREAMS_CHECK
 //#define TYPE_CONVERSIONS_BASICS
+//#define CONVERSIONS_FROM_OTHER_TO_CLASS
+#define CONVERSIONS_FROM_CLASS_TO_OTHER
+//#define CONVERSIONS_TASK_1
+#define CONVERSIONS_TASK_2
 
 void main()
 {
@@ -363,24 +385,46 @@ void main()
 	cout << sizeof(double) << endl;
 #endif // TYPE_CONVERSIONS_BASICS
 
+#ifdef CONVERSIONS_FROM_OTHER_TO_CLASS
 	/*
-	----------------------------------
-	1. From other to Class:
-		- Single-argument constructor;
-		- CopyAssignment;
-	2. From Class to other;
-	----------------------------------
-	*/
-	Fraction A = 5;
+----------------------------------
+1. From other to Class:
+	- Single-argument constructor;
+	- CopyAssignment;
+2. From Class to other;
+----------------------------------
+*/
+	Fraction A = (Fraction)5;	//Convertion from 'int' to 'Fraction'
+								//Single-Argument constructor
 	cout << A << endl;
 
 	cout << double_delimiter << endl;
 
 	Fraction B;	//Default constructor
 	cout << delimiter << endl;
-	B = 8;		//CopyAssignment
+	B = Fraction(8);		//Convertion from 'int' to Fraction
+							//Single-Argument constructor
+							//Copy assignment
 	cout << delimiter << endl;
 	cout << B << endl;
 
 	cout << double_delimiter << endl;
+#endif // CONVERSIONS_FROM_OTHER_TO_CLASS
+
+#ifdef CONVERSIONS_TASK_1
+	Fraction A(2, 3, 4);
+	cout << A << endl;
+
+	//int a = (int)A;
+	double a = A;
+	cout << a << endl;
+
+#endif // CONVERSIONS_TASK_1
+
+#ifdef CONVERSIONS_TASK_2
+	Fraction B = 2.75;
+	cout << B << endl;
+#endif // CONVERSIONS_TASK_2
+
+
 }

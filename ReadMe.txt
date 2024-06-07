@@ -3,6 +3,9 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIPt4Opfdrc50pI9PbPSjOaV
 https://meet.google.com/mho-khdw-fhj
 
 TODO:
+
+
+DONE:
 Выучить теорию по преобразованиям типов.
 
 DONE:
