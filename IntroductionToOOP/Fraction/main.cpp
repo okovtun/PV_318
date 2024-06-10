@@ -1,4 +1,5 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+﻿#define _USE_MATH_DEFINES
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 using namespace std;
 
@@ -57,6 +58,16 @@ public:
 		this->numerator = 0;
 		this->denominator = 1;
 		cout << "1ArgConstructor:\t" << this << endl;
+	}
+	Fraction(double decimal)
+	{
+		decimal += 1e-10;
+		integer = decimal;
+		decimal -= integer;
+		denominator = 1e+9;
+		numerator = decimal * denominator;
+		reduce();
+		cout << "Constructor:\t\t" << this << endl;
 	}
 	Fraction(int numerator, int denominator)
 	{
@@ -128,6 +139,10 @@ public:
 	explicit operator int()
 	{
 		return integer;
+	}
+	operator double()
+	{
+		return integer + (double)numerator / denominator;
 	}
 
 	//				Methods:
@@ -201,8 +216,8 @@ bool operator==(Fraction left, Fraction right)
 {
 	left.to_improper();
 	right.to_improper();
-	return 
-		left.get_numerator()*right.get_denominator() == 
+	return
+		left.get_numerator()*right.get_denominator() ==
 		right.get_numerator()*left.get_denominator();
 }
 bool operator!=(const Fraction& left, const Fraction& right)
@@ -271,9 +286,9 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 	int n = 0;
 	const char delimiters[] = "(/) +";
 	for (char* pch = strtok(buffer, delimiters); pch; pch = strtok(NULL, delimiters))
-	//Функция strtok() разделяет строку на токены:
-	//https://legacy.cplusplus.com/reference/cstring/strtok/
-		//	!!! ФУНКЦИЯ strtok() ИЗМЕНЯЕТ ВХОДНУЮ СТРОКУ !!!
+		//Функция strtok() разделяет строку на токены:
+		//https://legacy.cplusplus.com/reference/cstring/strtok/
+			//	!!! ФУНКЦИЯ strtok() ИЗМЕНЯЕТ ВХОДНУЮ СТРОКУ !!!
 		number[n++] = atoi(pch);
 	//pch - Pointer to Character (Указатель на символ)
 	//Функция atoi() - "ASCII string to int" принимает строку, и взвращает значение типа 'int' найденное в этой строке
@@ -366,7 +381,7 @@ void main()
 #ifdef STREAMS_CHECK
 	Fraction A(2, 3, 4);
 	cout << "Введите простую дробь: "; cin >> A;
-	
+
 	cout << A << endl;
 #endif // STREAMS_CHECK
 
@@ -422,8 +437,13 @@ void main()
 #endif // CONVERSIONS_TASK_1
 
 #ifdef CONVERSIONS_TASK_2
-	Fraction B = 2.75;
+	Fraction B = M_PI;
 	cout << B << endl;
+
+	/*for (unsigned int i = 0; i < UINT_MAX; i++)
+	{
+		cout << i << endl;
+	}*/
 #endif // CONVERSIONS_TASK_2
 
 

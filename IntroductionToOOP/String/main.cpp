@@ -31,14 +31,14 @@ public:
 void main()
 {
 	setlocale(LC_ALL, "");
-	//String str;
-	//str.print();
+	String str;
+	str.print();
 
-	String str1 = "Hello";
-	String str2 = "World";
-	cout << str1 << endl;
-	cout << str2 << endl;
+	//String str1 = "Hello";
+	//String str2 = "World";
+	//cout << str1 << endl;
+	//cout << str2 << endl;
 
-	String str3 = str1 + str2;
-	cout << str3 << endl;	//HelloWorld
+	//String str3 = str1 + str2;
+	//cout << str3 << endl;	//HelloWorld
 }
