@@ -2,11 +2,14 @@ https://github.com/okovtun/PV_318.git
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIPt4Opfdrc50pI9PbPSjOaV
 https://meet.google.com/mho-khdw-fhj
 
+TOREAD:
+https://legacy.cplusplus.com/doc/tutorial/classes2/
+
 TODO:
 1. Проверочный код в секции 'CONVERSIONS_TASK_1' должен заработать:		DONE
 	https://github.com/okovtun/PV_318/blob/8a1c5fac36642fe024a1fef36975907bea2a87fc/IntroductionToOOP/Fraction/main.cpp#L414
 
-2. Проверочный код в секции 'CONVERSIONS_TASK_2' должен заработать:
+2. Проверочный код в секции 'CONVERSIONS_TASK_2' должен заработать:		DONE
 	https://github.com/okovtun/PV_318/blob/8a1c5fac36642fe024a1fef36975907bea2a87fc/IntroductionToOOP/Fraction/main.cpp#L424
 
 3. Проверочный код в проекте 'String' должен заработать:
