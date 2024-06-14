@@ -6,6 +6,10 @@ TOREAD:
 https://legacy.cplusplus.com/doc/tutorial/classes2/
 
 TODO:
+В Solution 'IntroductionToOOP' добавить проект 'Matrix', и в нем реализовать класс 'Matrix',
+описывающий матрицу. Класс должен обеспечивать все необходимые операции с Матрицами.
+
+DONE:
 1. Проверочный код в секции 'CONVERSIONS_TASK_1' должен заработать:		DONE
 	https://github.com/okovtun/PV_318/blob/8a1c5fac36642fe024a1fef36975907bea2a87fc/IntroductionToOOP/Fraction/main.cpp#L414
 
