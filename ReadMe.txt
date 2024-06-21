@@ -2,10 +2,15 @@ https://github.com/okovtun/PV_318.git
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIPt4Opfdrc50pI9PbPSjOaV
 https://meet.google.com/mho-khdw-fhj
 
+TODO:
+1. В проекте 'Academy' реализовать класс 'Graduate', который описывает дипломника;
+2. Вызвать леструкторы для объектов;
+3. 
+
 TOREAD:
 https://legacy.cplusplus.com/doc/tutorial/classes2/
 
-TODO:
+DONE:
 Учим теорию по наследованию!!!
 
 DONE:
