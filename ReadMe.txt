@@ -3,7 +3,7 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIPt4Opfdrc50pI9PbPSjOaV
 https://meet.google.com/mho-khdw-fhj
 
 TODO:
-1. В проекте 'Academy' реализовать класс 'Graduate', который описывает дипломника;
+1. В проекте 'Academy' реализовать класс 'Graduate', который описывает дипломника; DONE
 2. Вызвать леструкторы для объектов;
 3. Проверочный код должен заработать:
 	https://github.com/okovtun/PV_318/blob/89549f58489c34e57828513e3f5606ba5a4cabd9/Inheritance/Academy/main.cpp#L208
