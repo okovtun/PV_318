@@ -7,6 +7,8 @@ TODO:
 2. Вызвать леструкторы для объектов;
 3. Проверочный код должен заработать:
 	https://github.com/okovtun/PV_318/blob/89549f58489c34e57828513e3f5606ba5a4cabd9/Inheritance/Academy/main.cpp#L208
+4. Написать функцию ??? save(???), которая сохраняет группу в файл;
+5. Написать функцию ??? load(???), которая загружает группу из файл;
 
 TOREAD:
 https://legacy.cplusplus.com/doc/tutorial/classes2/
