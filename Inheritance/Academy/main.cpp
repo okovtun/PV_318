@@ -59,6 +59,12 @@ public:
 	}
 };
 
+//dynamic_cast<>()
+virtual std::ostream& operator<<(std::ostream& os, const Human& obj)
+{
+	return os << obj.get_last_name() << " " << obj.get_first_name() << " " << obj.get_age() << " y/o";
+}
+
 #define STUDENT_TAKE_PARAMETERS const std::string& speciality, const std::string& group, double rating, double attendance
 #define STUDENT_GIVE_PARAMETERS speciality, group, rating, attendance
 class Student :public Human
@@ -123,6 +129,11 @@ public:
 	}
 };
 
+std::ostream& operator<<(std::ostream& os, const Student& obj)
+{
+	return os << (Human&)obj << " " << obj.get_speciality() << " " << obj.get_group() << " " << obj.get_rating() << " " << obj.get_attendance();
+}
+
 class Teacher : public Human
 {
 	std::string speciality;
@@ -166,6 +177,11 @@ public:
 	}
 };
 
+std::ostream& operator<<(std::ostream& os, const Teacher& obj)
+{
+	return os << (Human&)obj << " " << obj.get_speciality() << " " << obj.get_experience() << " y/o";
+}
+
 class Graduate :public Student
 {
 	std::string subject;
@@ -199,6 +215,11 @@ public:
 	}
 };
 
+std::ostream& operator<<(std::ostream& os, const Graduate& obj)
+{
+	return os << (Student&)obj << " " << obj.get_subject();
+}
+
 //#define INHERITANCE_CHECK
 
 void main()
@@ -227,7 +248,7 @@ void main()
 		VFPTR - Virtual Functions Pointers (Таблица указателей на виртуальные функции)
 	*/
 
-	//	Generalization:
+	//	Generalization (UpCast):
 	Human* group[] = 
 	{
 		new Student("Pinkman", "Jessie", 22, "Chemistry", "WW_220", 70, 97),
@@ -239,8 +260,14 @@ void main()
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
 	{
 		//group[i]->info();
-		cout << *group[i] << endl;
+		cout << typeid(*group[i]).name() << ":\t";
+		//https://legacy.cplusplus.com/doc/tutorial/typecasting/
+		//Specialization (DownCast):
+		if(typeid(*group[i]) == typeid(Student))cout << *dynamic_cast<Student*>(group[i]) << endl;
+		if(typeid(*group[i]) == typeid(Teacher))cout << *dynamic_cast<Teacher*>(group[i]) << endl;
+		if(typeid(*group[i]) == typeid(Graduate))cout << *dynamic_cast<Graduate*>(group[i]) << endl;
 		cout << delimiter << endl;
+		//member-function
 	}
 
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
