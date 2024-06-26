@@ -43,7 +43,7 @@ void main()
 		while (!fin.eof())	//NOT EndOfFile
 		{
 			//fin >> buffer;
-			fin.getline(buffer, SIZE);	//Читает строку с пробелами
+			fin.getline(buffer, SIZE/*'\n'*/);	//Читает строку с пробелами
 			cout << buffer << endl;
 		}
 
