@@ -12,10 +12,11 @@ TODO in 'Introduction\String':
 TODO:
 1. В проекте 'Academy' реализовать класс 'Graduate', который описывает дипломника; DONE
 2. Вызвать леструкторы для объектов;	DONE
-3. Проверочный код должен заработать:
+3. Проверочный код должен заработать:	DONE
 	https://github.com/okovtun/PV_318/blob/89549f58489c34e57828513e3f5606ba5a4cabd9/Inheritance/Academy/main.cpp#L208
 4. Написать функцию ??? save(???), которая сохраняет группу в файл;	DONE
-5. Написать функцию ??? load(???), которая загружает группу из файл;
+5. Написать функцию ??? load(???), которая загружает группу из файл;DONE
+6. Решить вопрос с 'Weapons distribution';
 
 TOREAD:
 https://legacy.cplusplus.com/doc/tutorial/classes2/
