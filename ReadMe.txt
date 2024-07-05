@@ -2,14 +2,19 @@ https://github.com/okovtun/PV_318.git
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIPt4Opfdrc50pI9PbPSjOaV
 https://meet.google.com/mho-khdw-fhj
 
-TODO in 'Introduction\String':
+TODO:
+Реализовать иерархию геометрических фигур: квадрат, прямоугольник, круг, треугольник.......
+Сгенерировать фигуры в случайном порядке, и для каждой фигуры вывести ее первичные своиства: длина стороны, радиус .....
+и вторичные свойства, такие как: площадь и периметр. Каждую фигуру так же нужно нарисовать.
+
+DONE in 'Introduction\String':
 	https://stackoverflow.com/questions/72927820/c20-visual-studio-2022-complier-optimization-setting-to-implement-move-constru
 	https://learn.microsoft.com/en-us/cpp/build/reference/zc-nrvo?view=msvc-170
 	-------------------------------------------------------------------------------
 	https://en.wikipedia.org/wiki/Copy_elision
 	https://en.cppreference.com/w/cpp/language/copy_elision
 
-TODO:
+DONE:
 1. В проекте 'Academy' реализовать класс 'Graduate', который описывает дипломника; DONE
 2. Вызвать леструкторы для объектов;	DONE
 3. Проверочный код должен заработать:	DONE
