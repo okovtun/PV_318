@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{080FA2CF-C9DE-4AD8-A07C-CE8DDDAB1562}</ProjectGuid>
+    <ProjectGuid>{2623B747-72DD-4FCB-AD8F-9E3CAE868C9F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>AbstractGeometry</RootNamespace>
+    <RootNamespace>Geo</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -144,9 +144,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

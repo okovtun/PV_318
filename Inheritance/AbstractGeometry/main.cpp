@@ -7,17 +7,36 @@ namespace Geometry
 {
 	enum Color	//enum (Enumeration) - это перечисление. Перечисление - это набор целочисленных констант
 	{
+		RED		= 0x000000FF,
+		GREEN	= 0x0000FF00,
+		BLUE	= 0x00FF0000,
+
 		CONSOLE_BLUE = 0x99,
 		CONSOLE_GREEN = 0xAA,
 		CONSOLE_RED = 0xCC,
 		CONSOLE_DEFAULT = 0x07
 	};
 
+#define SHAPE_TAKE_PARAMETERS	unsigned int start_x, unsigned int start_y, unsigned int line_width, Color color
+#define SHAPE_GIVE_PARAMETERS	start_x, start_y, line_width, color
 	class Shape
 	{
+	protected:	//Защищенные поля, доступны только внутри класса, и внутри его дочерних классов,
+		//Благодаря protected: к этим полям можно булет образаться напрямую в дочерних классах (без get/set-методов).
 		Color color;
+		//Коорлинаты, по которым будет выводиться фигура:
+		unsigned int start_x;
+		unsigned int start_y;
+		//В любой графической оболчке координаты задаются в пикселах.
+		//Начало координат всегда находится в левом верхнем углу.
+		unsigned int line_width;	//толщина линии, которой будет рисорваться контур фигуры.
 	public:
-		Shape(Color color) :color(color) {}
+		Shape(SHAPE_TAKE_PARAMETERS) :color(color)
+		{
+			set_start_x(start_x);
+			set_start_y(start_y);
+			set_line_width(line_width);
+		}
 		virtual ~Shape() {}
 		virtual double get_area()const = 0;
 		virtual double get_perimeter()const = 0;
@@ -30,6 +49,30 @@ namespace Geometry
 		{
 			this->color = color;
 		}
+		unsigned int get_start_x()const
+		{
+			return start_x;
+		}
+		unsigned int get_start_y()const
+		{
+			return start_y;
+		}
+		unsigned int get_line_width()const
+		{
+			return line_width;
+		}
+		void set_start_x(unsigned int start_x)
+		{
+			this->start_x = start_x;
+		}
+		void set_start_y(unsigned int start_y)
+		{
+			this->start_y = start_y;
+		}
+		void set_line_width(unsigned int line_width)
+		{
+			this->line_width = line_width;
+		}
 		virtual void info()const
 		{
 			cout << "Площадь фигуры: " << get_area() << endl;
@@ -38,7 +81,7 @@ namespace Geometry
 		}
 	};
 
-	class Square :public Shape
+	/*class Square :public Shape
 	{
 		double side;	//длина стороны
 	public:
@@ -83,14 +126,14 @@ namespace Geometry
 			cout << "Длина стороны: " << side << endl;
 			Shape::info();
 		}
-	};
+	};*/
 
 	class Rectangle :public Shape
 	{
 		double width;
 		double height;
 	public:
-		Rectangle(double width, double height, Color color) :Shape(color)
+		Rectangle(double width, double height, SHAPE_TAKE_PARAMETERS) :Shape(SHAPE_GIVE_PARAMETERS)
 		{
 			set_width(width);
 			set_height(height);
@@ -122,8 +165,9 @@ namespace Geometry
 			SelectObject(hdc, hBrush);
 
 			//6) Рисуем прямоугольник:
-			::Rectangle(hdc, 400, 50, 800, 350);
-
+			::Rectangle(hdc, start_x, start_y, start_x + width, start_y + height);
+			//start_x, start_y - координаты верхнего левого угла
+			//800,350 - координаты нижнего правого угла.
 			//7) Освбождаем ресурсы:
 			DeleteObject(hPen);
 			DeleteObject(hBrush);
@@ -154,19 +198,27 @@ namespace Geometry
 			Shape::info();
 		}
 	};
+
+	class Square :public Rectangle
+	{
+	public:
+		Square(double side, SHAPE_TAKE_PARAMETERS) :Rectangle(side, side, SHAPE_GIVE_PARAMETERS) {}
+		~Square() {}
+	};
 }
 
 void main()
 {
 	setlocale(LC_ALL, "");
 	//Shape shape(Color::CONSOLE_BLUE);
-	Geometry::Square square(5, Geometry::Color::CONSOLE_RED);
+	Geometry::Square square(50, 300, 50, 5, Geometry::Color::BLUE);
 	/*cout << "Длина стороны клвадрата: " << square.get_side() << endl;
 	cout << "Площадь квадрата:  " << square.get_area() << endl;
 	cout << "Периметр квадрата: " << square.get_perimeter() << endl;
 	square.draw();*/
 	square.info();
 
-	Geometry::Rectangle rect{ 15, 8, Geometry::Color::CONSOLE_BLUE };
+	Geometry::Rectangle rect{ 150, 80, 500, 50, 3, Geometry::Color::BLUE };
 	rect.info();
+
 }

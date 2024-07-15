@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Files", "Files\Files.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AbstractGeometry", "AbstractGeometry\AbstractGeometry.vcxproj", "{080FA2CF-C9DE-4AD8-A07C-CE8DDDAB1562}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Geo", "Geo\Geo.vcxproj", "{2623B747-72DD-4FCB-AD8F-9E3CAE868C9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{080FA2CF-C9DE-4AD8-A07C-CE8DDDAB1562}.Release|x64.Build.0 = Release|x64
 		{080FA2CF-C9DE-4AD8-A07C-CE8DDDAB1562}.Release|x86.ActiveCfg = Release|Win32
 		{080FA2CF-C9DE-4AD8-A07C-CE8DDDAB1562}.Release|x86.Build.0 = Release|Win32
+		{2623B747-72DD-4FCB-AD8F-9E3CAE868C9F}.Debug|x64.ActiveCfg = Debug|x64
+		{2623B747-72DD-4FCB-AD8F-9E3CAE868C9F}.Debug|x64.Build.0 = Debug|x64
+		{2623B747-72DD-4FCB-AD8F-9E3CAE868C9F}.Debug|x86.ActiveCfg = Debug|Win32
+		{2623B747-72DD-4FCB-AD8F-9E3CAE868C9F}.Debug|x86.Build.0 = Debug|Win32
+		{2623B747-72DD-4FCB-AD8F-9E3CAE868C9F}.Release|x64.ActiveCfg = Release|x64
+		{2623B747-72DD-4FCB-AD8F-9E3CAE868C9F}.Release|x64.Build.0 = Release|x64
+		{2623B747-72DD-4FCB-AD8F-9E3CAE868C9F}.Release|x86.ActiveCfg = Release|Win32
+		{2623B747-72DD-4FCB-AD8F-9E3CAE868C9F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

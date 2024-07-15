@@ -3,6 +3,9 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIPt4Opfdrc50pI9PbPSjOaV
 https://meet.google.com/mho-khdw-fhj
 
 TODO:
+1. Почитать про системы счисления
+
+TODO:
 1. Решить проблему с цветами;
 2. Реализвать остальные фигуры, и нарисовать их при помощи WinGDI:
 	https://learn.microsoft.com/en-us/windows/win32/gdi/about-filled-shapes
