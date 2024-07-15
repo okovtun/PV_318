@@ -3,7 +3,11 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIPt4Opfdrc50pI9PbPSjOaV
 https://meet.google.com/mho-khdw-fhj
 
 TODO:
-1. Почитать про системы счисления
+1. Почитать про системы счисления:
+	https://github.com/okovtun/PV_318/blob/master/NumericSystems.pdf;
+2. Добавить желтый, цвет;
+3. Реализовать класс Circle:
+	https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-ellipse;
 
 TODO:
 1. Решить проблему с цветами;
