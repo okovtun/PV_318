@@ -156,10 +156,10 @@ namespace Geometry
 			//HWND hwnd = GetConsoleWindow();	//1) Получаем десткриптор окна консоли.
 											//description
 											//HWND - Handler to Window (Обработчик (Дескриптор) окна)
-			
+
 			HDC hdc = GetDC(hwnd);			//2) Получаем констекст устройства (Device Context) окна консоли.
 											//	 DC - это то, на чем мы будем рисовать
-			HPEN hPen = CreatePen(PS_SOLID, 5, get_color());	//3) Создаем карандаш. pen рисует контур фигуры.
+			HPEN hPen = CreatePen(PS_SOLID, line_width, get_color());	//3) Создаем карандаш. pen рисует контур фигуры.
 																//PS_SOLID - сплошная линия
 																//5 - толщина линии в пикселах
 
@@ -173,7 +173,7 @@ namespace Geometry
 			::Rectangle(hdc, start_x, start_y, start_x + width, start_y + height);
 			//start_x, start_y - координаты верхнего левого угла
 			//800,350 - координаты нижнего правого угла.
-			
+
 			//7) Освбождаем ресурсы:
 			DeleteObject(hPen);
 			DeleteObject(hBrush);
@@ -216,7 +216,7 @@ namespace Geometry
 	{
 		double radius;
 	public:
-		
+
 		Circle(double radius, SHAPE_TAKE_PARAMETERS) :Shape(SHAPE_GIVE_PARAMETERS)
 		{
 			set_radius(radius);
@@ -261,22 +261,80 @@ namespace Geometry
 			ReleaseDC(hwnd, hdc);
 		}
 	};
+
+	class Triangle :public Shape
+	{
+	public:
+		virtual double get_height()const = 0;
+		Triangle(SHAPE_TAKE_PARAMETERS) :Shape(SHAPE_GIVE_PARAMETERS) {}
+		~Triangle() {}
+	};
+	class EquilateralTriangle :public Triangle
+	{
+		double side;
+	public:
+		double get_side()const
+		{
+			return side;
+		}
+		void set_side(double side)
+		{
+			this->side = side;
+		}
+		double get_height()const override
+		{
+			return sqrt(side*side - side / 2 * side / 2);
+		}
+		double get_area()const override
+		{
+			return side / 2 * get_height();
+		}
+		double get_perimeter()const override
+		{
+			return side * 3;
+		}
+		void draw()const override
+		{
+			HWND hwnd = FindWindow(NULL, "Inheritance - Microsoft Visual Studio");
+			HDC hdc = GetDC(hwnd);
+
+			HPEN hPen = CreatePen(PS_SOLID, line_width, color);
+			HBRUSH hBrush = CreateSolidBrush(color);
+
+			SelectObject(hdc, hPen);
+			SelectObject(hdc, hBrush);
+
+			/*POINT apt[] = 
+			{
+				{x1, y1},
+				{x2, y2},
+				{x3, y3}
+			};*/
+
+			DeleteObject(hBrush);
+			DeleteObject(hPen);
+
+			ReleaseDC(hwnd, hdc);
+		}
+	};
 }
 
 void main()
 {
 	setlocale(LC_ALL, "");
 	//Shape shape(Color::CONSOLE_BLUE);
-	Geometry::Square square(50, 300, 50, 5, Geometry::Color::BLUE);
+	Geometry::Square square(50, 3000, 5000, 500, Geometry::Color::BLUE);
 	/*cout << "Длина стороны клвадрата: " << square.get_side() << endl;
 	cout << "Площадь квадрата:  " << square.get_area() << endl;
 	cout << "Периметр квадрата: " << square.get_perimeter() << endl;
 	square.draw();*/
 	square.info();
 
-	Geometry::Rectangle rect{ 150, 80, 500, 50, 3, Geometry::Color::DARK_RED };
+	Geometry::Rectangle rect{ 150, 80, 500, 50, 300, Geometry::Color::DARK_RED };
 	rect.info();
 
-	Geometry::Circle circle(75, 700, 50, 5, Geometry::Color::YELLOW);
+	Geometry::Circle circle(75, 700, 50, 750, Geometry::Color::YELLOW);
 	circle.info();
+
+	//Geometry::Triangle triangle(300, 300, 5, Geometry::Color::GREEN);
 }
