@@ -1,4 +1,5 @@
 ﻿//AbstractGeometry
+#define _USE_MATH_DEFINES
 #include<Windows.h>
 #include<iostream>
 using namespace std;
@@ -7,9 +8,11 @@ namespace Geometry
 {
 	enum Color	//enum (Enumeration) - это перечисление. Перечисление - это набор целочисленных констант
 	{
-		RED		= 0x000000FF,
-		GREEN	= 0x0000FF00,
-		BLUE	= 0x00FF0000,
+		RED = 0x000000FF,
+		DARK_RED = 0x00000077,
+		GREEN = 0x0000FF00,
+		BLUE = 0x00FF0000,
+		YELLOW = 0x0000FFFF,
 
 		CONSOLE_BLUE = 0x99,
 		CONSOLE_GREEN = 0xAA,
@@ -149,10 +152,12 @@ namespace Geometry
 		}
 		void draw()const override
 		{
-			HWND hwnd = GetConsoleWindow();	//1) Получаем десткриптор окна консоли.
+			HWND hwnd = FindWindow(NULL, "Inheritance - Microsoft Visual Studio");
+			//HWND hwnd = GetConsoleWindow();	//1) Получаем десткриптор окна консоли.
 											//description
 											//HWND - Handler to Window (Обработчик (Дескриптор) окна)
-			HDC hdc = GetDC(hwnd);			//2) Получаем констукст устройства (Device Context) окна консоли.
+			
+			HDC hdc = GetDC(hwnd);			//2) Получаем констекст устройства (Device Context) окна консоли.
 											//	 DC - это то, на чем мы будем рисовать
 			HPEN hPen = CreatePen(PS_SOLID, 5, get_color());	//3) Создаем карандаш. pen рисует контур фигуры.
 																//PS_SOLID - сплошная линия
@@ -168,6 +173,7 @@ namespace Geometry
 			::Rectangle(hdc, start_x, start_y, start_x + width, start_y + height);
 			//start_x, start_y - координаты верхнего левого угла
 			//800,350 - координаты нижнего правого угла.
+			
 			//7) Освбождаем ресурсы:
 			DeleteObject(hPen);
 			DeleteObject(hBrush);
@@ -205,6 +211,56 @@ namespace Geometry
 		Square(double side, SHAPE_TAKE_PARAMETERS) :Rectangle(side, side, SHAPE_GIVE_PARAMETERS) {}
 		~Square() {}
 	};
+
+	class Circle :public Shape
+	{
+		double radius;
+	public:
+		
+		Circle(double radius, SHAPE_TAKE_PARAMETERS) :Shape(SHAPE_GIVE_PARAMETERS)
+		{
+			set_radius(radius);
+		}
+		~Circle() {}
+		void set_radius(double radius)
+		{
+			this->radius = radius;
+		}
+		double get_radius()const
+		{
+			return radius;
+		}
+		double get_diameter()const
+		{
+			return 2 * radius;
+		}
+		double get_area()const override
+		{
+			return M_PI * radius*radius;
+		}
+		double get_perimeter()const override
+		{
+			return M_PI * get_diameter();
+		}
+		void draw()const override
+		{
+			HWND hwnd = FindWindow(NULL, "Inheritance - Microsoft Visual Studio");
+			HDC hdc = GetDC(hwnd);
+
+			HPEN hPen = CreatePen(PS_SOLID, line_width, color);
+			HBRUSH hBrush = CreateSolidBrush(color);
+
+			SelectObject(hdc, hPen);
+			SelectObject(hdc, hBrush);
+
+			::Ellipse(hdc, start_x, start_y, start_x + get_diameter(), start_y + get_diameter());
+
+			DeleteObject(hBrush);
+			DeleteObject(hPen);
+
+			ReleaseDC(hwnd, hdc);
+		}
+	};
 }
 
 void main()
@@ -218,7 +274,9 @@ void main()
 	square.draw();*/
 	square.info();
 
-	Geometry::Rectangle rect{ 150, 80, 500, 50, 3, Geometry::Color::BLUE };
+	Geometry::Rectangle rect{ 150, 80, 500, 50, 3, Geometry::Color::DARK_RED };
 	rect.info();
 
+	Geometry::Circle circle(75, 700, 50, 5, Geometry::Color::YELLOW);
+	circle.info();
 }
