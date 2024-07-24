@@ -47,12 +47,35 @@ public:
 		//3) Голову перенаправляем на новый элемент:
 		Head = New;
 	}
+	void push_back(int Data)
+	{
+		/*int a = 2;
+		int* pa = &a;
+		int* pb = new int(3);*/
+
+		//Поскольку push_back() НЕ умеет работать с пустым списком, мы проверяем,
+		//если список пуст, вызываем метод push_front(), который УМЕЕТ работать с пустым списком.
+		if (Head == nullptr)return push_front(Data);
+
+		//1) Создаем новый элемент:
+		Element* New = new Element(Data);
+
+		//2) Доходим до конца списка:
+		Element* Temp = Head;
+		//while((*Temp).pNext)
+		while (Temp->pNext)
+			Temp = Temp->pNext;
+		
+		//3) После того как мы оказались в конце списка, можно добавлять новый элемент в конец:
+		Temp->pNext = New;
+	}
 
 	//					Methods:
 	void print()const
 	{
 		Element* Temp = Head;	//Temp - это итератор.
-								//Итератор - это указатель, при помощи которого можно получить доступ к элементам структуры данных.
+								//Итератор - это указатель, при помощи которого 
+								//можно получить доступ к элементам структуры данных.
 		while (Temp)
 		{
 			cout << Temp << tab << Temp->Data << tab << Temp->pNext << endl;
@@ -69,7 +92,10 @@ void main()
 	ForwardList list;
 	for (int i = 0; i < n; i++)
 	{
-		list.push_front(rand() % 100);
+		//list.push_front(rand() % 100);
+		list.push_back(rand() % 100);
 	}
+	list.print();
+	list.push_back(123);
 	list.print();
 }
