@@ -8,6 +8,7 @@ https://meet.google.com/mho-khdw-fhj
 
 TODO:
 Проверочный код в секции RANGE_BASED_FOR_LIST должен заработать.
+	https://github.com/okovtun/PV_318/blob/771b842c5a3ac310be6209cfddea00f56f87ccbb/DataContainers/ForwardList/main.cpp#L385
 
 DONE:
 В класс ForwardList добавить следуюшие методы:
