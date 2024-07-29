@@ -375,6 +375,7 @@ void main()
 	//Range - это диапазон. Под данным термином в этом контексте понимают контейнер,
 	//т.е., контейнеры иногда нзывают 'range'.
 	//Следовательно, Range-based for - это цикл for для контейнеров.
+	//https://legacy.cplusplus.com/doc/tutorial/control/#:~:text=equal%20to%2050.-,Range%2Dbased%20for%20loop,-The%20for%2Dloop
 	cout << endl;
 
 	cout << typeid(arr).name() << endl;
