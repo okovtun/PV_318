@@ -10,6 +10,22 @@ TOREAD:
 https://legacy.cplusplus.com/doc/tutorial/control/#:~:text=equal%20to%2050.-,Range%2Dbased%20for%20loop,-The%20for%2Dloop
 
 TODO:
+1. В двусвязный список добавить следующие методы:
+	??? reverse_print();	//выводит список на экран от Хвоста до Головы
+	??? push_back(???);
+	??? pop_front(???);
+	??? pop_back(???);
+
+	??? insert(???);
+	??? erase(???);
+
+2. Деструктор должен очищать список;
+
+3. Проверочный код должен заработать:
+	List list = { 3, 5, 8, 13, 21 };
+	for(int i:list)cout << i << tab; cout << endl;;
+
+DONE:
 Проверочный код в секции RANGE_BASED_FOR_LIST должен заработать.	DONE
 	https://github.com/okovtun/PV_318/blob/771b842c5a3ac310be6209cfddea00f56f87ccbb/DataContainers/ForwardList/main.cpp#L385-L393
 
