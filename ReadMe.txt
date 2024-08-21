@@ -10,7 +10,7 @@ TOREAD:
 https://legacy.cplusplus.com/doc/tutorial/control/#:~:text=equal%20to%2050.-,Range%2Dbased%20for%20loop,-The%20for%2Dloop
 
 TODO:
-Создвть ветку 'TemplatedList', и в этой ветке шаблонизировать двусвязный список.
+Создать ветку 'TemplatedList', и в этой ветке шаблонизировать двусвязный список.
 
 TODO:
 1. Оптимизировать алгоритмы добавления элементов до одного выражения,
