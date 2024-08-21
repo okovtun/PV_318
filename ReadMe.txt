@@ -10,6 +10,11 @@ TOREAD:
 https://legacy.cplusplus.com/doc/tutorial/control/#:~:text=equal%20to%2050.-,Range%2Dbased%20for%20loop,-The%20for%2Dloop
 
 TODO:
+1. От ветки 'TemplatedList' создать ветку 'SeparatedList', и в ней вынести двусвязный список в отдельные файлы;
+2. В ветке 'TemplatedList' шаблонизировать односвязный список;
+3. В ветку 'SeparatedList' вынести односвязный список в отдельные файлы;
+
+DONE:
 1. Оптимизировать алгоритмы добавления элементов до одного выражения,	DONE
    как мы это делали в односвязном списке;
 2. Оптимизировать код итераторов;
