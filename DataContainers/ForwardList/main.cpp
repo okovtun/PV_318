@@ -25,6 +25,7 @@ public:
 	}
 	friend class Iterator;
 	friend class ForwardList;
+	friend class Stack;
 };
 int Element::count = 0;
 
@@ -71,6 +72,7 @@ public:
 
 class ForwardList
 {
+protected:
 	Element* Head;	//Голова списка, указывает на начальный элемент списка
 	int size;
 public:
@@ -302,6 +304,25 @@ ForwardList operator+(const ForwardList& left, const ForwardList& right)
 	return buffer;
 }
 
+class Stack : ForwardList
+{
+public:
+	void push(int Data)
+	{
+		push_front(Data);
+	}
+	int pop()
+	{
+		int Data = Head->Data;
+		pop_front();
+		return Data;
+	}
+	int depth()const
+	{
+		return size;
+	}
+};
+
 void Print(int arr[])
 {
 	cout << typeid(arr).name() << endl;
@@ -318,7 +339,7 @@ void Print(int arr[])
 //#define OPERATOR_PLUS_CHECK
 //#define INITIALIZER_LIST_CONSTRUCTOR_CHECK
 //#define RANGE_BASED_FOR_ARRAY
-#define RANGE_BASED_FOR_LIST
+//#define RANGE_BASED_FOR_LIST
 
 void main()
 {
@@ -448,4 +469,18 @@ void main()
 	cout << endl;
 #endif // RANGE_BASED_FOR_LIST
 
+	Stack stack;
+	stack.push(3);	//Stack Bottom
+	stack.push(5);
+	stack.push(8);
+	stack.push(13);
+	stack.push(21);	//Stack Top
+	cout << "Depth: " << stack.depth() << endl;
+
+	while (stack.depth())
+	{
+		cout << stack.pop() << endl;
+	}
+	cout << "Depth: " << stack.depth() << endl;
+	stack.get_size();
 }
