@@ -11,6 +11,7 @@ https://legacy.cplusplus.com/reference/algorithm/
 
 TODO:
 1. Вывести словарь на экран при помощи range-based-for;
+2. Задача 1: https://github.com/okovtun/PV_318/blob/master/STL/GAI%20DZ_PS_C%2B%2B_nedelya_09.pdf
 
 DONE:
 1. Добавить значение в вектор по указанному индексу, индекс и значение вводит пользователь;
