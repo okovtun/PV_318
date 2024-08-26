@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 #include<string>
 #include<map>
 #include<vector>
@@ -16,7 +16,7 @@ void main()
 	setlocale(LC_ALL, "");
 
 #ifdef STL_MAP
-	/*map - это контейнер, каждый элемент которого хранит пару<ключ, значение>
+	/*map - СЌС‚Рѕ РєРѕРЅС‚РµР№РЅРµСЂ, РєР°Р¶РґС‹Р№ СЌР»РµРјРµРЅС‚ РєРѕС‚РѕСЂРѕРіРѕ С…СЂР°РЅРёС‚ РїР°СЂСѓ<РєР»СЋС‡, Р·РЅР°С‡РµРЅРёРµ>
 			pair<key, value>
 	*/
 
@@ -30,7 +30,7 @@ void main()
 		std::pair<int, std::string>(1, "Monday"),
 		std::pair<int, std::string>(2, "Tuesday"),
 		std::pair<int, std::string>(3, "Wednesday"),
-		std::pair<int, std::string>(3, "Среда"),
+		std::pair<int, std::string>(3, "РЎСЂРµРґР°"),
 		std::pair<int, std::string>(3, "Wednesday"),
 		std::pair<int, std::string>(3, "Wednesday"),
 		std::pair<int, std::string>(3, "Wednesday"),
@@ -38,7 +38,7 @@ void main()
 		{4, "Thursday"},
 		{5, "Friday"},
 		{5, "Friday"},
-		{5, "Пятница"},
+		{5, "РџСЏС‚РЅРёС†Р°"},
 		{5, "Friday"},
 		{5, "Friday"},
 		{5, "Friday"},
@@ -64,10 +64,10 @@ void main()
 
 	std::map<std::string, std::vector<std::string>> dictionary = 
 	{
-		std::pair<std::string, std::vector<std::string>>("map", {"карта", "план", "таблица"}),
-		std::pair<std::string, std::vector<std::string>>("window", {"окно", "витрина"}),
-		{"statement", {"утверждение", "заявление", "высказывание"}},
-		{"journey", {"путешествие", "поездка", "рейс", "прогулка"}}
+		std::pair<std::string, std::vector<std::string>>("map", {"РєР°СЂС‚Р°", "РїР»Р°РЅ", "С‚Р°Р±Р»РёС†Р°"}),
+		std::pair<std::string, std::vector<std::string>>("window", {"РѕРєРЅРѕ", "РІРёС‚СЂРёРЅР°"}),
+		{"statement", {"СѓС‚РІРµСЂР¶РґРµРЅРёРµ", "Р·Р°СЏРІР»РµРЅРёРµ", "РІС‹СЃРєР°Р·С‹РІР°РЅРёРµ"}},
+		{"journey", {"РїСѓС‚РµС€РµСЃС‚РІРёРµ", "РїРѕРµР·РґРєР°", "СЂРµР№СЃ", "РїСЂРѕРіСѓР»РєР°"}}
 	};
 	for (std::map<std::string, std::vector<std::string>>::iterator it = dictionary.begin(); it != dictionary.end(); ++it)
 	{
